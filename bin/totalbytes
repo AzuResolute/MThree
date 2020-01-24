@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+#Add up all the total size
+
+if  [[ $# -ne 1 ]]
+then
+	echo $0: needs 1 arg, not $# of them 2>&1
+	exit 1
+fi
+ls -la $1 | awk '
+	BEGIN		 {sum = 0}
+	NR >= 2 && /^-/	 {sum = sum + $5}
+	END		 {print "sum:", sum}
+'
+
+exit 0

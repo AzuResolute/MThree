@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+for dir in $(echo $PATH | tr : ' ')
+do
+	if [[ ! -e $dir ]]
+	then
+		echo $dir
+	fi
+done
+
